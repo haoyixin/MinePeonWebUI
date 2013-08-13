@@ -70,7 +70,7 @@ elseif (!empty($_REQUEST['options'])) {
 	$newdatatemp = json_decode($_REQUEST['options'], true);
 
 	// Overwrite current with new config
-	if(!empty($newdata)&&is_array($newdata)){
+	if(!empty($newdatatemp)&&is_array($newdatatemp)){
 
 		// Angular => cgminer (objects => strings)
 		foreach ($newdatatemp as $value) {
