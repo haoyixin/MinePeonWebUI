@@ -43,3 +43,7 @@ chown minepeon.http /opt/minepeon/etc/minepeon.conf
 * added variables donateEnable & alertEnable 
 * variables renamed, but still compatible
 * 
+
+## Mod
+
+* Now sendEmail need Pear for PHP
