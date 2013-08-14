@@ -32,7 +32,7 @@
       <div class="col-lg-10 col-offset-2">
         <p class="help-block" ng-show="settings.helpEnable">You need this password to access this webinterface. Changing it will log you out.</p>
         <p class="help-block" ng-show="settings.helpEnable">An empty password will not be saved.</p>
-        <button type="button" class="btn btn-success" ng-click="sync('pass',userPassword)" ng-show="formUser.userPassword.$dirty"
+        <button type="button" class="btn btn-success" ng-click="sync('pass',userPassword,1)" ng-show="formUser.userPassword.$dirty"
         ng-disabled="userPassword!=userPassword2">Save password</button>
       </div>
     </div>
@@ -84,44 +84,15 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="donateAmount" class="control-label col-lg-2">Donation</label>
-      <div class="col-lg-4">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" id="donateEnable" ng-model="settings.donateEnable"> Enable donation
-          </label>
+      <label for="miningExpHW" class="control-label col-lg-2">Expected HW Percent</label>
+      <div class="col-lg-10">
+        <div class="input-group">
+          <input type="number" min="0.01" max="99.99" step="0.01" id="miningExpHW" ng-model="settings.miningExpHW" class="form-control" required>
+          <span class="input-group-addon">%</span>
         </div>
-      </div>
-      <div class="col-lg-6">
-        <div ng-show="settings.donateEnable">
-          <div class="input-group">
-            <input type="number" placeholder="Donation minutes" id="donateAmount" ng-model="settings.donateAmount" ng-required="settings.donateEnable" class="form-control">
-            <span class="input-group-addon">minutes per day</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-10 col-offset-2" ng-hide="settings.donateEnable">
-        <p>
-          You might not like idea that your mining hardware is being used by somebody else.<br />
-          We understand.<br />
-          Now look what your support could bring you:
-          <ul class="list-unstyled">
-            <li>Live Update <span class="label label-success">Almost finished</span></li>
-            <li>SMS/Email Alerts <span class="label label-success">Almost finished</span></li>
-            <li>Backup/Restore <span class="label label-warning">Work in progress</span></li>
-            <li>TFT Display</li>
-            <li>LCD Display</li>
-            <li>Android app</li> 
-            <li>iOS app</li>
-            <li>Cloud Control</li>
-            <li>VPN Tunneling (DDOS Protection & Anonymity)</li>
-          </ul>
-        </p>
-      </div>
-      <div class="col-lg-10 col-offset-2" ng-show="settings.helpEnable">
-        <p>
-          Daily, at midnight, MinePeon will replace your miner configuration with donation configuration and then restart the miner.<br />
-          When disabled, configuration and the miner will not be touched. Last donation moment: <span class="text-muted">(to come)</span>
+        <p class="help-block" ng-show="settings.helpEnable">
+          If the percentage of HW rise to this value for more than a minute, an alert will be sent.<br/>
+          After 3 minutes cgminer will be restarted.
         </p>
       </div>
     </div>
@@ -156,7 +127,18 @@
       <label for="alertSmtp" class="control-label col-lg-2">SMTP Server</label>
       <div class="col-lg-10">
         <input type="text" id="alertSmtp" ng-model="settings.alertSmtp" ng-required="settings.alertEnable" class="form-control" placeholder="smtp.myisp.com">
-        <p class="help-block" ng-show="settings.helpEnable">Please choose your own SMTP server.</p>
+      </div>
+    </div>
+    <div class="form-group" ng-show="settings.alertEnable">
+      <label for="alertUser" class="control-label col-lg-2">User Name</label>
+      <div class="col-lg-10">
+        <input type="text" id="alertUser" ng-model="settings.alertUser" ng-required="settings.alertEnable" class="form-control" placeholder="username">
+      </div>
+    </div>
+    <div class="form-group" ng-show="settings.alertEnable">
+      <label for="alertPass" class="control-label col-lg-2">Password</label>
+      <div class="col-lg-10">
+        <input type="password" id="alertPass" ng-model="settings.alertPass" ng-required="settings.alertEnable" class="form-control" placeholder="password">
       </div>
     </div>
   </fieldset>
