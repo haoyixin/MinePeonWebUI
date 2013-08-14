@@ -42,6 +42,12 @@ if (isset($_POST['miningExpHash'])) {
   $writeSettings=true;
 
 }
+if (isset($_POST['miningExpHW'])) {
+
+  $settings['miningExpHW'] = $_POST['miningExpHW'];
+  $writeSettings=true;
+
+}
 
 // Donation settings
 if (isset($_POST['donateEnable']) and isset($_POST['donateAmount'])) {
@@ -80,6 +86,18 @@ if (isset($_POST['alertEmail'])) {
 if (isset($_POST['alertSmtp'])) {
 
   $settings['alertSmtp'] = $_POST['alertSmtp'];
+  $writeSettings=true;
+
+}
+if (isset($_POST['alertUser'])) {
+
+  $settings['alertUser'] = $_POST['alertUser'];
+  $writeSettings=true;
+
+}
+if (isset($_POST['alertPass'])) {
+
+  $settings['alertPass'] = $_POST['alertPass'];
   $writeSettings=true;
 
 }
