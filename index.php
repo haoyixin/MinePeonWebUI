@@ -1,5 +1,8 @@
 <?php
 
+header("Location: ./advanced.html"); 
+exit;
+
 require('miner.inc.php');
 include('settings.inc.php');
 
