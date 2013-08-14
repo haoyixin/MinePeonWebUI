@@ -67,8 +67,9 @@ if(!empty($r['status']['devs'])){
       $Rejected = $Rejected + $dev['Rejected'];
       $HardwareErrors = $HardwareErrors + $dev['HardwareErrors'];
       $Utility = $Utility + $dev['Utility'];
+      $Diff1Work = $Diff1Work + $dev['Diff1Work'];
     }
-    $r['status']['devs'][$id]['TotalShares']=$dev['Accepted']+$dev['Rejected']+$dev['HardwareErrors'];
+    $r['status']['devs'][$id]['TotalShares']=$dev['Accepted']+$dev['Rejected'];
   }
 }
 
@@ -80,7 +81,8 @@ $r['status']['dtot']=array(
   'Rejected'=>$Rejected,
   'HardwareErrors'=>$HardwareErrors,
   'Utility'=>$Utility,
-  'TotalShares'=>$Accepted+$Rejected+$HardwareErrors);
+  'Diff1Work'=>$Diff1Work,
+  'TotalShares'=>$Accepted+$Rejected);
 
 // Set q to 0 if not given
 if(!empty($_REQUEST['all'])){
