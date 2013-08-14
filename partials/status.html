@@ -67,7 +67,7 @@
 			<td ng-bind="d.MHSav|mhs|hashps"></td>
 			<td ng-bind="d.Accepted"></td>
 			<td ng-bind-template="{{d.Rejected}}&nbsp;[{{100*d.Rejected/(d.TotalShares)|number:2}}%]"	ng-class="{danger:d.Rejected/(d.TotalShares) > .05}"></td>
-			<td ng-bind-template="{{d.HardwareErrors}}&nbsp;[{{100*d.HardwareErrors/(d.TotalShares)|number:2}}%]"	ng-class="{danger:d.HardwareErrors/(d.TotalShares) > .1}"></td>
+			<td ng-bind-template="{{d.HardwareErrors}}&nbsp;[{{100*d.HardwareErrors/(d.Diff1Work)|number:2}}%]"	ng-class="{danger:d.HardwareErrors/(d.Diff1Work) > .1}"></td>
 			<td ng-bind="d.Utility"></td>
 			<td ng-bind="1000*d.LastShareTime|date:'HH:mm:ss'"></td>
 		</tr>
@@ -79,7 +79,7 @@
 			<th ng-bind="status.dtot.MHSav|mhs|hashps"></th>
 			<th ng-bind="status.dtot.Accepted"></th>
 			<th ng-bind-template="{{status.dtot.Rejected}}&nbsp;[{{100*status.dtot.Rejected/(status.dtot.TotalShares)|number:2}}%]"></th>
-			<th ng-bind-template="{{status.dtot.HardwareErrors}}&nbsp;[{{100*status.dtot.HardwareErrors/(status.dtot.TotalShares)|number:2}}%]"></th>
+			<th ng-bind-template="{{status.dtot.HardwareErrors}}&nbsp;[{{100*status.dtot.HardwareErrors/(status.dtot.Diff1Work)|number:2}}%]"></th>
 			<th ng-bind="status.dtot.Utility">" . $ . "</th>
 			<th></th>
 		</tr>
